@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087f45">
+
+<title>گنج سبز با کود کروا</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --green:#087f45;
+    --green2:#0baa5d;
+    --light:#dff7e9;
+    --verylight:#f3fff7;
+    --dark:#063b25;
+    --brown:#795548;
+    --white:#ffffff;
+    --text:#17382a;
+    --shadow:0 15px 40px rgba(0,90,45,.12);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Vazirmatn',Tahoma,sans-serif;
+    background:#f7fff9;
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid #dff0e5;
+}
+
+.navbar{
+    max-width:1250px;
+    margin:auto;
+    min-height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+    padding:12px 20px;
+}
+
+.logo{
+    color:#72d89d;
+    font-size:32px;
+    font-weight:900;
+    letter-spacing:-1px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    animation:logoVibrate 2s infinite;
+    text-shadow:0 5px 20px rgba(35,180,95,.18);
+}
+
+.logo span{
+    color:#087f45;
+}
+
+@keyframes logoVibrate{
+    0%,88%,100%{transform:translateX(0) rotate(0);}
+    89%{transform:translateX(-2px) rotate(-1deg);}
+    90%{transform:translateX(2px) rotate(1deg);}
+    91%{transform:translateX(-2px) rotate(-1deg);}
+    92%{transform:translateX(2px) rotate(1deg);}
+    93%{transform:translateX(0);}
+}
+
+nav{
+    display:flex;
+    gap:23px;
+    align-items:center;
+}
+
+nav a{
+    font-size:14px;
+    font-weight:600;
+    color:#315c46;
+    transition:.25s;
+}
+
+nav a:hover{
+    color:var(--green2);
+}
+
+.nav-btn{
+    background:var(--green);
+    color:white!important;
+    padding:11px 17px;
+    border-radius:13px;
+    box-shadow:0 8px 20px rgba(8,127,69,.18);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    position:relative;
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:
+        linear-gradient(110deg,rgba(2,61,34,.92),rgba(5,119,65,.78)),
+        url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    background:rgba(123,255,177,.08);
+    top:-300px;
+    right:-200px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:1250px;
+    width:100%;
+    margin:auto;
+    padding:70px 25px;
+    color:white;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.22);
+    padding:9px 15px;
+    border-radius:50px;
+    font-size:13px;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-size:clamp(35px,5vw,66px);
+    line-height:1.25;
+    max-width:800px;
+    font-weight:900;
+}
+
+.hero h1 span{
+    color:#a4f4c4;
+}
+
+.hero p{
+    margin-top:20px;
+    max-width:700px;
+    line-height:2.1;
+    color:#e5fff0;
+    font-size:17px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:13px;
+    flex-wrap:wrap;
+    margin-top:32px;
+}
+
+.btn{
+    border:0;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 22px;
+    border-radius:14px;
+    font-size:14px;
+    font-weight:800;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn-green{
+    background:#9cf2bc;
+    color:#064b2b;
+    box-shadow:0 10px 30px rgba(0,0,0,.14);
+}
+
+.btn-white{
+    background:white;
+    color:#087f45;
+}
+
+/* ================= GENERAL ================= */
+
+.section{
+    max-width:1250px;
+    margin:auto;
+    padding:90px 20px;
+}
+
+.section-head{
+    text-align:center;
+    max-width:750px;
+    margin:0 auto 45px;
+}
+
+.section-head .mini{
+    color:var(--green2);
+    font-size:14px;
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+.section-head h2{
+    font-size:clamp(28px,4vw,42px);
+    color:var(--dark);
+    margin-bottom:14px;
+}
+
+.section-head p{
+    color:#668071;
+    line-height:2;
+}
+
+/* ================= SEARCH ================= */
+
+.search-box{
+    max-width:850px;
+    margin:-38px auto 0;
+    position:relative;
+    z-index:10;
+    background:white;
+    padding:15px;
+    border-radius:22px;
+    box-shadow:var(--shadow);
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.search-icon{
+    font-size:22px;
+    padding-right:8px;
+}
+
+.search-box input{
+    flex:1;
+    border:0;
+    outline:0;
+    font-size:15px;
+    color:#183d2a;
+    background:transparent;
+}
+
+.search-box input::placeholder{
+    color:#91a79a;
+}
+
+/* ================= TRUST ================= */
+
+.trust{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-top:65px;
+}
+
+.trust-card{
+    background:white;
+    border:1px solid #e0f0e5;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    transition:.3s;
+}
+
+.trust-card:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow);
+}
+
+.trust-card .icon{
+    font-size:32px;
+    margin-bottom:12px;
+}
+
+.trust-card h3{
+    font-size:16px;
+    margin-bottom:8px;
+}
+
+.trust-card p{
+    font-size:12px;
+    color:#71887a;
+    line-height:1.8;
+}
+
+/* ================= PRODUCTS ================= */
+
+.products-bg{
+    background:#eefbf2;
+}
+
+.category-tabs{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+}
+
+.category-tabs button{
+    border:1px solid #cce8d7;
+    background:white;
+    color:#397052;
+    padding:10px 16px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.category-tabs button.active,
+.category-tabs button:hover{
+    background:var(--green);
+    color:white;
+    border-color:var(--green);
+}
+
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.product-card{
+    background:white;
+    border-radius:22px;
+    overflow:hidden;
+    border:1px solid #dfefe4;
+    transition:.35s;
+    box-shadow:0 7px 25px rgba(0,80,40,.05);
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow);
+}
+
+.product-top{
+    height:145px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#e3f9eb,#f9fffb);
+    font-size:55px;
+}
+
+.product-body{
+    padding:20px;
+}
+
+.product-tag{
+    display:inline-block;
+    font-size:11px;
+    color:#087f45;
+    background:#e7f9ed;
+    padding:5px 9px;
+    border-radius:20px;
+    margin-bottom:10px;
+}
+
+.product-body h3{
+    font-size:17px;
+    color:#173c29;
+    margin-bottom:10px;
+}
+
+.product-body p{
+    color:#71877a;
+    font-size:12px;
+    line-height:1.9;
+    min-height:68px;
+}
+
+.product-button{
+    width:100%;
+    margin-top:15px;
+    background:#087f45;
+    color:white;
+    border:0;
+    padding:11px;
+    border-radius:11px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+/* ================= PROBLEMS ================= */
+
+.problem-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.problem{
+    background:white;
+    border:1px solid #e2eee6;
+    padding:24px;
+    border-radius:20px;
+    transition:.3s;
+}
+
+.problem:hover{
+    border-color:#9bd9b5;
+    transform:translateY(-4px);
+}
+
+.problem-icon{
+    font-size:28px;
+}
+
+.problem h3{
+    margin:12px 0 8px;
+    font-size:17px;
+}
+
+.problem p{
+    color:#73897b;
+    line-height:1.9;
+    font-size:13px;
+}
+
+/* ================= PROGRAMS ================= */
+
+.programs{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
+}
+
+.program{
+    min-height:180px;
+    border-radius:20px;
+    padding:25px 18px;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:end;
+    background:linear-gradient(145deg,#087f45,#0fb568);
+    position:relative;
+    overflow:hidden;
+}
+
+.program::before{
+    content:"🌱";
+    position:absolute;
+    font-size:75px;
+    opacity:.1;
+    top:5px;
+    left:10px;
+}
+
+.program h3{
+    font-size:17px;
+    position:relative;
+}
+
+.program p{
+    font-size:11px;
+    margin-top:8px;
+    opacity:.85;
+    line-height:1.8;
+}
+
+/* ================= CONSULTATION ================= */
+
+.consult{
+    background:linear-gradient(135deg,#063d27,#0b8b4c);
+    color:white;
+    border-radius:35px;
+    padding:55px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:45px;
+    box-shadow:0 25px 60px rgba(3,85,44,.2);
+}
+
+.consult h2{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.consult p{
+    color:#d9f6e5;
+    line-height:2;
+}
+
+.form{
+    background:white;
+    padding:25px;
+    border-radius:23px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.form input,
+.form select,
+.form textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #dcece1;
+    border-radius:10px;
+    outline:0;
+    color:#234936;
+    background:#fbfffc;
+}
+
+.form textarea{
+    resize:vertical;
+    min-height:85px;
+    grid-column:1/-1;
+}
+
+.form button{
+    width:100%;
+    margin-top:12px;
+    background:#0a9b56;
+    color:white;
+    border:0;
+    padding:14px;
+    border-radius:11px;
+    cursor:pointer;
+    font-weight:800;
+}
+
+/* ================= ARTICLES ================= */
+
+.articles{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.article{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid #e1eee5;
+}
+
+.article-image{
+    height:180px;
+    background:
+        linear-gradient(120deg,rgba(0,90,45,.25),rgba(0,90,45,.05)),
+        url("https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=900&q=80")
+        center/cover;
+}
+
+.article-body{
+    padding:22px;
+}
+
+.article-body span{
+    font-size:11px;
+    color:#0a9b56;
+    font-weight:700;
+}
+
+.article-body h3{
+    margin:9px 0;
+    font-size:17px;
+}
+
+.article-body p{
+    color:#748a7c;
+    font-size:12px;
+    line-height:1.9;
+}
+
+/* ================= AREAS ================= */
+
+.areas{
+    background:#f0faf3;
+}
+
+.area-box{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+}
+
+.area{
+    background:white;
+    border:1px solid #dcece2;
+    border-radius:50px;
+    padding:12px 20px;
+    color:#24633f;
+    font-weight:700;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#052d1d;
+    color:white;
+    padding:60px 20px 25px;
+}
+
+.footer-inner{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:40px;
+}
+
+.footer-logo{
+    font-size:28px;
+    color:#91edb5;
+    font-weight:900;
+    margin-bottom:15px;
+}
+
+footer p{
+    color:#b8d1c2;
+    font-size:13px;
+    line-height:2;
+}
+
+footer h3{
+    margin-bottom:17px;
+    color:#d9f8e5;
+}
+
+footer a{
+    display:block;
+    color:#aac6b5;
+    font-size:13px;
+    margin-bottom:11px;
+}
+
+.footer-bottom{
+    max-width:1250px;
+    margin:45px auto 0;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.1);
+    text-align:center;
+    color:#8da99a;
+    font-size:12px;
+}
+
+/* ================= FLOAT BUTTON ================= */
+
+.float-consult{
+    position:fixed;
+    bottom:22px;
+    left:22px;
+    z-index:999;
+    background:#0ba85d;
+    color:white;
+    border:0;
+    padding:14px 19px;
+    border-radius:50px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 12px 30px rgba(0,130,70,.3);
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{box-shadow:0 12px 30px rgba(0,130,70,.3);}
+    50%{box-shadow:0 12px 40px rgba(0,180,90,.55);}
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,30,18,.7);
+    backdrop-filter:blur(6px);
+    z-index:2000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-content{
+    width:min(600px,100%);
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    position:relative;
+    max-height:90vh;
+    overflow:auto;
+}
+
+.close{
+    position:absolute;
+    top:14px;
+    left:17px;
+    border:0;
+    background:#edf8f1;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:1000px){
+    nav{
+        display:none;
+    }
+
+    .products-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .trust{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .programs{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .footer-inner{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:650px){
+    .navbar{
+        min-height:68px;
+    }
+
+    .logo{
+        font-size:24px;
+    }
+
+    .hero{
+        min-height:610px;
+    }
+
+    .hero-content{
+        padding:60px 20px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .hero-buttons .btn{
+        width:100%;
+    }
+
+    .section{
+        padding:65px 15px;
+    }
+
+    .search-box{
+        margin:-28px 15px 0;
+    }
+
+    .products-grid,
+    .problem-grid,
+    .articles{
+        grid-template-columns:1fr;
+    }
+
+    .trust{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .programs{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .consult{
+        grid-template-columns:1fr;
+        padding:28px 18px;
+    }
+
+    .consult h2{
+        font-size:27px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form textarea{
+        grid-column:auto;
+    }
+
+    .footer-inner{
+        grid-template-columns:1fr;
+    }
+
+    .float-consult{
+        left:12px;
+        right:12px;
+        bottom:12px;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="navbar">
+
+        <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+            🌿 <span>گنج سبز</span>
+        </div>
+
+        <nav>
+            <a href="#products">محصولات</a>
+            <a href="#programs">برنامه تغذیه</a>
+            <a href="#problems">مشکلات باغ</a>
+            <a href="#articles">مقالات</a>
+            <a href="#consult">مشاوره</a>
+            <a href="#contact">تماس</a>
+            <a href="#consult" class="nav-btn">مشاوره قبل از خرید</a>
+        </nav>
+
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            🌱 کود و نهاده تخصصی کشاورزی کروا
+        </div>
+
+        <h1>
+            از خاک سالم
+            <span>تا محصول بهتر</span>
+        </h1>
+
+        <p>
+            برنامه تغذیه مناسب برای خاک، ریشه، رشد و باردهی گیاه.
+            انتخاب محصول مناسب با توجه به شرایط باغ، خاک، آب و مرحله رشد.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#consult" class="btn btn-green">
+                🟢 دریافت مشاوره تغذیه باغ
+            </a>
+
+            <a href="#products" class="btn btn-white">
+                🟠 مشاهده محصولات
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SEARCH -->
+<div class="search-box">
+    <div class="search-icon">🔎</div>
+    <input
+        id="searchInput"
+        type="text"
+        placeholder="نام محصول را به فارسی جستجو کنید..."
+        oninput="searchProducts()"
+    >
+</div>
+
+<!-- TRUST -->
+<section class="section">
+
+    <div class="trust">
+
+        <div class="trust-card">
+            <div class="icon">🌱</div>
+            <h3>تغذیه تخصصی</h3>
+            <p>محصولات برای استفاده هدفمند در برنامه تغذیه گیاه</p>
+        </div>
+
+        <div class="trust-card">
+            <div class="icon">🧪</div>
+            <h3>انتخاب آگاهانه</h3>
+            <p>انتخاب محصول با توجه به شرایط واقعی باغ</p>
+        </div>
+
+        <div class="trust-card">
+            <div class="icon">👨‍🌾</div>
+            <h3>مشاوره قبل از خرید</h3>
+            <p>قبل از انتخاب محصول با ما مشورت کنید</p>
+        </div>
+
+        <div class="trust-card">
+            <div class="icon">🚚</div>
+            <h3>ارسال سراسر کشور</h3>
+            <p>امکان ارسال محصولات به سراسر ایران</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRODUCTS -->
+<section class="section products-bg" id="products">
+
+    <div class="section-head">
+        <div class="mini">محصولات تخصصی کروا</div>
+        <h2>محصول مناسب را از روی نیاز باغ پیدا کنید</h2>
+        <p>
+            محصولات را بر اساس کاربرد و نیاز تغذیه‌ای مشاهده کنید،
+            نه فقط بر اساس نام محصول.
+        </p>
+    </div>
+
+    <div class="category-tabs">
+        <button class="active" onclick="filterProducts('all',this)">همه</button>
+        <button onclick="filterProducts('root',this)">خاک و ریشه</button>
+        <button onclick="filterProducts('growth',this)">رشد و تغذیه</button>
+        <button onclick="filterProducts('bio',this)">زیستی</button>
+        <button onclick="filterProducts('organic',this)">آلی</button>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+
+        <article class="product-card" data-category="growth" data-name="کود محرک رشد">
+            <div class="product-top">🌱</div>
+            <div class="product-body">
+                <span class="product-tag">رشد و تغذیه</span>
+                <h3>کود محرک رشد</h3>
+                <p>حاوی NPK، هیومیک اسید و ماده آلی برای استفاده در برنامه تغذیه گیاه.</p>
+                <button class="product-button" onclick="openProduct('کود محرک رشد')">مشاهده محصول</button>
+            </div>
+        </article>
+
+        <article class="product-card" data-category="root" data-name="کود مایع هیومیک اسید">
+            <div class="product-top">🟤</div>
+            <div class="product-body">
+                <span class="product-tag">خاک و ریشه</span>
+                <h3>کود مایع هیومیک اسید</h3>
+                <p>برای قرار گرفتن در برنامه مدیریت خاک و بهبود شرایط محیط ریشه.</p>
+                <button class="product-button" onclick="openProduct('کود مایع هیومیک اسید')">مشاهده محصول</button>
+            </div>
+        </article>
+
+        <article class="product-card" data-category="organic" data-name="N-P-K-S کامل آلی کود">
+            <div class="product-top">🧪</div>
+            <div class="product-body">
+                <span class="product-tag">تغذیه کامل</span>
+                <h3>N-P-K-S کامل آلی کود</h3>
+                <p>ترکیبی از عناصر غذایی برای استفاده در برنامه تغذیه و چالکود طبق برنامه.</p>
+                <button class="product-button" onclick="openProduct('N-P-K-S کامل آلی کود')">مشاهده محصول</button>
+            </div>
+        </article>
+
+        <article class="product-card" data-category="growth" data-name="کود مایع فروت ست">
+            <div class="product-top">🌸</div>
+            <div class="product-body">
+                <span class="product-tag">فروت‌ست</span>
+                <h3>کود مایع فروت ست</h3>
+                <p>ترکیبی از عناصر غذایی، ماده آلی و آمینواسیدها برای زمان مناسب برنامه باغ.</p>
+                <button class="product-button" onclick="openProduct('کود مایع فروت ست')">مشاهده محصول</button>
+            </div>
+        </article>
+
+        <article class="product-card" data-category="organic" data-name="قرص کود ارگانیک">
+            <div class="product-top">💊</div>
+            <div class="product-body">
+                <span class="product-tag">ارگانیک</span>
+                <h3>قرص کود ارگانیک</h3>
+                <p>فرم فشرده کود برای استفاده هدفمند در برنامه تغذیه گیاه.</p>
+                <button class="product-button" onclick="openProduct('قرص کود ارگانیک')">مشاهده محصول</button>
+            </div>
+        </article>
+
+        <article class="product-card" data-category="organic" data-name="کود کامل پلت">
+            <div class="product-top">🟢</div>
+            <div class="product-body">
+                <span class="product-tag">کود کامل</span>
+                <h3>کود کامل پلت</h3>
+                <p>محصول پلت‌شده برای قرار گرفتن در برنامه تغذیه و مدیریت خاک.</p>
+                <button class="product-button" onclick="openProduct('کود کامل پلت')">مشاهده محصول</button>
+            </div>
+        </article>
+
+        <article class="product-card" data-category="bio" data-name="کود زیستی جامد باسیلوس سوبتیلیس">
+            <div class="product-top">🦠</div>
+            <div class="product-body">
+                <span class="product-tag">سلامت زیستی خاک</span>
+                <h3>باسیلوس سوبتیلیس</h3>
+                <p>برای برنامه‌های مدیریت زیستی خاک و حمایت از سلامت محیط ریشه.</p>
+                <button class="product-button" onclick="openProduct('کود زیستی جامد باسیلوس سوبتیلیس')">مشاهده محصول</button>
+            </div>
+        </article>
+
+        <article class="product-card" data-category="bio" data-name="کود زیستی جامد تریکودرما هارزیانوم">
+            <div class="product-top">🍃</div>
+            <div class="product-body">
+                <span class="product-tag">سلامت زیستی خاک</span>
+                <h3>تریکودرما هارزیانوم</h3>
+                <p>برای برنامه‌های مدیریت زیستی خاک و سلامت ریشه.</p>
+                <button class="product-button" onclick="openProduct('کود زیستی جامد تریکودرما هارزیانوم')">مشاهده محصول</button>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- PROBLEMS -->
+<section class="section" id="problems">
+
+    <div class="section-head">
+        <div class="mini">مشکلات باغ</div>
+        <h2>با کدام مشکل مواجه هستید؟</h2>
+        <p>
+            ابتدا مشکل باغ را بشناسید؛ سپس برای انتخاب راهکار و محصول مناسب اقدام کنید.
+        </p>
+    </div>
+
+    <div class="problem-grid">
+
+        <div class="problem">
+            <div class="problem-icon">🧂</div>
+            <h3>شوری خاک</h3>
+            <p>بررسی شرایط خاک و آب و قرار دادن اصلاح خاک در برنامه مدیریتی باغ.</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-icon">🟤</div>
+            <h3>خاک سنگین و فشرده</h3>
+            <p>مدیریت شرایط محیط ریشه و بهبود وضعیت خاک با برنامه مناسب.</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-icon">🌱</div>
+            <h3>ضعف ریشه</h3>
+            <p>تمرکز بر سلامت ریشه و مدیریت تغذیه و شرایط محیطی.</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-icon">📉</div>
+            <h3>رشد کم درخت</h3>
+            <p>بررسی عوامل تغذیه‌ای و شرایط باغ قبل از انتخاب کود.</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-icon">🧪</div>
+            <h3>کمبود عناصر غذایی</h3>
+            <p>انتخاب برنامه تغذیه بر اساس نیاز گیاه و در صورت امکان آزمون خاک.</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-icon">🌸</div>
+            <h3>ضعف جوانه‌ها</h3>
+            <p>مدیریت تغذیه در زمان مناسب برای حمایت از مراحل حساس رشد.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="section products-bg" id="programs">
+
+    <div class="section-head">
+        <div class="mini">برنامه تغذیه</div>
+        <h2>برنامه تغذیه برای محصولات مختلف</h2>
+        <p>
+            نسخه عمومی جایگزین برنامه شخصی‌سازی‌شده نیست؛
+            برنامه نهایی باید با توجه به شرایط واقعی باغ تعیین شود.
+        </p>
+    </div>
+
+    <div class="programs">
+
+        <div class="program">
+            <h3>برنامه تغذیه پسته</h3>
+            <p>مدیریت تغذیه در مراحل مختلف رشد باغ</p>
+        </div>
+
+        <div class="program">
+            <h3>برنامه تغذیه انار</h3>
+            <p>تغذیه هدفمند متناسب با شرایط باغ</p>
+        </div>
+
+        <div class="program">
+            <h3>برنامه تغذیه انگور</h3>
+            <p>توجه به رشد، باردهی و نیاز غذایی</p>
+        </div>
+
+        <div class="program">
+            <h3>برنامه تغذیه زعفران</h3>
+            <p>مدیریت تغذیه در مراحل مناسب کشت</p>
+        </div>
+
+        <div class="program">
+            <h3>درختان میوه</h3>
+            <p>برنامه متناسب با نوع و سن باغ</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- AREAS -->
+<section class="section areas">
+
+    <div class="section-head">
+        <div class="mini">پوشش خدمات</div>
+        <h2>کشاورزان کدام مناطق؟</h2>
+        <p>ارسال محصولات و امکان دریافت مشاوره برای کشاورزان سراسر کشور.</p>
+    </div>
+
+    <div class="area-box">
+        <div class="area">🌿 کرمان</div>
+        <div class="area">🌿 خراسان جنوبی</div>
+        <div class="area">🌿 خراسان شمالی</div>
+        <div class="area">🌿 خراسان رضوی</div>
+        <div class="area">🌿 یزد</div>
+        <div class="area">🌿 فارس</div>
+        <div class="area">🌿 سراسر ایران</div>
+    </div>
+
+</section>
+
+<!-- CONSULTATION -->
+<section class="section" id="consult">
+
+    <div class="consult">
+
+        <div>
+            <div class="mini" style="color:#9cf2bc;margin-bottom:12px;">
+                مشاوره قبل از خرید
+            </div>
+
+            <h2>برای باغ شما چه محصولی مناسب‌تر است؟</h2>
+
+            <p>
+                نوع محصول، سن باغ، منطقه، مساحت و مشکل اصلی باغتان را برای ما ارسال کنید
+                تا انتخاب محصول و برنامه تغذیه با اطلاعات بیشتری انجام شود.
+            </p>
+
+            <br>
+
+            <p>
+                ⚠️ برنامه تغذیه نهایی باید با توجه به شرایط خاک، آب، گیاه،
+                سن باغ و آزمون‌های موجود تعیین شود.
+            </p>
+        </div>
+
+        <form class="form" onsubmit="submitConsult(event)">
+
+            <div class="form-grid">
+
+                <select required>
+                    <option value="">نوع محصول</option>
+                    <option>پسته</option>
+                    <option>انار</option>
+                    <option>انگور</option>
+                    <option>زعفران</option>
+                    <option>درختان میوه</option>
+                    <option>سایر</option>
+                </select>
+
+                <select required>
+                    <option value="">استان</option>
+                    <option>کرمان</option>
+                    <option>خراسان جنوبی</option>
+                    <option>خراسان شمالی</option>
+                    <option>خراسان رضوی</option>
+                    <option>یزد</option>
+                    <option>فارس</option>
+                    <option>سایر</option>
+                </select>
+
+                <input type="number" placeholder="سن باغ">
+
+                <input type="text" placeholder="مساحت باغ">
+
+                <select>
+                    <option value="">مشکل اصلی</option>
+                    <option>شوری خاک</option>
+                    <option>ضعف رشد</option>
+                    <option>زردی</option>
+                    <option>ضعف ریشه</option>
+                    <option>ضعف باردهی</option>
+                    <option>کمبود عناصر</option>
+                    <option>سایر</option>
+                </select>
+
+                <select>
+                    <option value="">آزمون خاک دارید؟</option>
+                    <option>بله</option>
+                    <option>خیر</option>
+                </select>
+
+                <input type="tel" placeholder="شماره تماس">
+
+                <textarea placeholder="توضیحات بیشتر درباره باغ یا مشکل آن..."></textarea>
+
+            </div>
+
+            <button type="submit">
+                🟢 دریافت مشاوره رایگان انتخاب کود
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- ARTICLES -->
+<section class="section" id="articles">
+
+    <div class="section-head">
+        <div class="mini">آموزش کشاورزی</div>
+        <h2>دانش بیشتر، انتخاب بهتر</h2>
+        <p>
+            محتوای آموزشی برای شناخت بهتر مشکلات خاک، تغذیه و مدیریت باغ.
+        </p>
+    </div>
+
+    <div class="articles">
+
+        <article class="article">
+            <div class="article-image"></div>
+            <div class="article-body">
+                <span>خاک و ریشه</span>
+                <h3>هیومیک اسید برای خاک شور</h3>
+                <p>
+                    نقش هیومیک اسید در برنامه مدیریت خاک و شرایط محیط ریشه را بهتر بشناسید.
+                </p>
+            </div>
+        </article>
+
+        <article class="article">
+            <div class="article-image"></div>
+            <div class="article-body">
+                <span>تغذیه</span>
+                <h3>کود چالکود پسته</h3>
+                <p>
+                    قبل از انتخاب کود، شرایط خاک، آب، سن باغ و نیاز غذایی را بررسی کنید.
+                </p>
+            </div>
+        </article>
+
+        <article class="article">
+            <div class="article-image"></div>
+            <div class="article-body">
+                <span>فروت‌ست</span>
+                <h3>جوانه‌های سال آینده از امروز اهمیت دارند</h3>
+                <p>
+                    با مفهوم فروت‌ست و جایگاه آن در برنامه تغذیه باغ آشنا شوید.
+                </p>
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+
+    <div class="footer-inner">
+
+        <div>
+            <div class="footer-logo">🌿 گنج سبز با کود کروا</div>
+
+            <p>
+                همراه شما برای انتخاب آگاهانه محصولات تخصصی کشاورزی،
+                مدیریت خاک، تغذیه ریشه و برنامه‌ریزی بهتر باغ.
+            </p>
+        </div>
+
+        <div>
+            <h3>دسترسی سریع</h3>
+            <a href="#products">محصولات</a>
+            <a href="#programs">برنامه تغذیه</a>
+            <a href="#problems">مشکلات باغ</a>
+            <a href="#articles">مقالات</a>
+        </div>
+
+        <div>
+            <h3>مشاوره</h3>
+            <a href="#consult">مشاوره قبل از خرید</a>
+            <a href="#consult">تشخیص اولیه باغ</a>
+            <a href="#consult">انتخاب محصول</a>
+        </div>
+
+        <div>
+            <h3>ارتباط با ما</h3>
+            <a href="#">📞 تماس با ما</a>
+            <a href="#">💬 واتساپ</a>
+            <a href="#">📱 پیام‌رسان</a>
+            <a href="#">🚚 ارسال سراسر کشور</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 گنج سبز با کود کروا | تمامی حقوق محفوظ است.
+    </div>
+
+</footer>
+
+<!-- FLOAT -->
+<button class="float-consult" onclick="document.getElementById('consult').scrollIntoView({behavior:'smooth'})">
+    🟢 مشاوره رایگان انتخاب کود
+</button>
+
+<!-- MODAL -->
+<div class="modal" id="productModal">
+
+    <div class="modal-content">
+
+        <button class="close" onclick="closeProduct()">×</button>
+
+        <div style="font-size:55px;margin-bottom:10px;">🌱</div>
+
+        <h2 id="modalTitle" style="color:#087f45;margin-bottom:15px;"></h2>
+
+        <p style="color:#657c6d;line-height:2;">
+            این محصول می‌تواند در برنامه تغذیه و مدیریت باغ،
+            با توجه به شرایط خاک، آب، گیاه و مرحله رشد مورد بررسی قرار گیرد.
+        </p>
+
+        <div style="
+            background:#effaf3;
+            padding:18px;
+            border-radius:15px;
+            margin-top:20px;
+            color:#38664b;
+            line-height:2;
+            font-size:13px;
+        ">
+            ⚠️ مقدار و روش مصرف را مطابق برچسب محصول و شرایط واقعی باغ
+            و توصیه کارشناس تعیین کنید.
+        </div>
+
+        <button
+            onclick="closeProduct();document.getElementById('consult').scrollIntoView({behavior:'smooth'})"
+            style="
+                width:100%;
+                border:0;
+                background:#087f45;
+                color:white;
+                padding:14px;
+                border-radius:12px;
+                margin-top:20px;
+                cursor:pointer;
+                font-weight:800;
+            "
+        >
+            🟢 مشاوره برای انتخاب این محصول
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+/* ================= SEARCH ================= */
+
+function searchProducts(){
+
+    const query =
+        document.getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const cards =
+        document.querySelectorAll(".product-card");
+
+    cards.forEach(card=>{
+
+        const name =
+            card.dataset.name.toLowerCase();
+
+        card.style.display =
+            name.includes(query) ? "" : "none";
+
+    });
+
+}
+
+/* ================= FILTER ================= */
+
+function filterProducts(category,button){
+
+    document
+        .querySelectorAll(".category-tabs button")
+        .forEach(btn=>btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    document
+        .querySelectorAll(".product-card")
+        .forEach(card=>{
+
+            if(category==="all"){
+                card.style.display="";
+            }
+            else{
+                card.style.display =
+                    card.dataset.category===category
+                    ? ""
+                    : "none";
+            }
+
+        });
+
+}
+
+/* ================= PRODUCT MODAL ================= */
+
+function openProduct(name){
+
+    document.getElementById("modalTitle").innerText=name;
+
+    document
+        .getElementById("productModal")
+        .classList.add("show");
+
+}
+
+function closeProduct(){
+
+    document
+        .getElementById("productModal")
+        .classList.remove("show");
+
+}
+
+document
+    .getElementById("productModal")
+    .addEventListener("click",function(e){
+
+        if(e.target===this){
+            closeProduct();
+        }
+
+    });
+
+/* ================= CONSULTATION ================= */
+
+function submitConsult(event){
+
+    event.preventDefault();
+
+    alert(
+        "اطلاعات شما ثبت شد 🌱\n\n" +
+        "در نسخه واقعی سایت، این فرم می‌تواند مستقیماً به واتساپ، پیام‌رسان یا سیستم مدیریت سرنخ متصل شود."
+    );
+
+}
+
+/* ================= ESC KEY ================= */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key==="Escape"){
+        closeProduct();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
