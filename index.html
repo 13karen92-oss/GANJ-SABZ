@@ -121,6 +121,53 @@ nav a:hover{
     box-shadow:0 8px 20px rgba(8,127,69,.18);
 }
 
+/* ================= CART BUTTON ================= */
+
+.cart-button{
+    position:relative;
+    border:0;
+    background:linear-gradient(135deg,#087f45,#0baa5d);
+    color:white;
+    width:50px;
+    height:50px;
+    border-radius:16px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    box-shadow:0 8px 22px rgba(8,127,69,.25);
+    transition:.3s;
+    flex-shrink:0;
+}
+
+.cart-button:hover{
+    transform:translateY(-3px) scale(1.03);
+    box-shadow:0 12px 28px rgba(8,127,69,.32);
+}
+
+.cart-icon{
+    line-height:1;
+}
+
+.cart-count{
+    position:absolute;
+    top:-7px;
+    left:-7px;
+    min-width:22px;
+    height:22px;
+    padding:0 5px;
+    border-radius:50px;
+    background:#e53935;
+    color:white;
+    border:2px solid white;
+    font-size:11px;
+    font-weight:900;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
 /* ================= HERO ================= */
 
 .hero{
@@ -425,6 +472,26 @@ nav a:hover{
     border-radius:11px;
     cursor:pointer;
     font-weight:700;
+}
+
+/* ================= CART BUTTON INSIDE PRODUCT ================= */
+
+.add-cart-button{
+    width:100%;
+    margin-top:10px;
+    background:#e53935;
+    color:white;
+    border:0;
+    padding:11px;
+    border-radius:11px;
+    cursor:pointer;
+    font-weight:800;
+    transition:.25s;
+}
+
+.add-cart-button:hover{
+    background:#c62828;
+    transform:translateY(-2px);
 }
 
 /* ================= PROBLEMS ================= */
@@ -751,6 +818,135 @@ footer a{
     font-size:18px;
 }
 
+/* ================= CART MODAL ================= */
+
+.cart-modal-content{
+    width:min(650px,100%);
+}
+
+.cart-title{
+    color:#087f45;
+    font-size:25px;
+    margin-bottom:20px;
+    padding-left:40px;
+}
+
+.cart-items{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.cart-item{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:#f3fff7;
+    border:1px solid #dcefe3;
+    border-radius:17px;
+    padding:13px;
+}
+
+.cart-item-icon{
+    width:55px;
+    height:55px;
+    border-radius:14px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:29px;
+    flex-shrink:0;
+}
+
+.cart-item-info{
+    flex:1;
+}
+
+.cart-item-info h3{
+    font-size:14px;
+    color:#173c29;
+    margin-bottom:7px;
+}
+
+.cart-item-info span{
+    font-size:11px;
+    color:#789083;
+}
+
+.quantity-control{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    background:white;
+    border:1px solid #d6e9dc;
+    padding:5px;
+    border-radius:12px;
+}
+
+.quantity-control button{
+    width:30px;
+    height:30px;
+    border:0;
+    border-radius:9px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:900;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.quantity-minus{
+    background:#ffe5e5;
+    color:#d32f2f;
+}
+
+.quantity-plus{
+    background:#e2f8eb;
+    color:#087f45;
+}
+
+.quantity-number{
+    min-width:24px;
+    text-align:center;
+    font-weight:900;
+    color:#173c29;
+}
+
+.cart-empty{
+    text-align:center;
+    padding:45px 20px;
+    color:#71877a;
+}
+
+.cart-empty-icon{
+    font-size:60px;
+    margin-bottom:12px;
+}
+
+.cart-total{
+    margin-top:20px;
+    background:#087f45;
+    color:white;
+    border-radius:16px;
+    padding:16px;
+    text-align:center;
+    font-weight:800;
+}
+
+.cart-close-button{
+    width:100%;
+    margin-top:12px;
+    border:0;
+    background:#edf8f1;
+    color:#087f45;
+    padding:12px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:800;
+}
+
 /* ================= MOBILE ================= */
 
 @media(max-width:1000px){
@@ -849,6 +1045,18 @@ footer a{
         bottom:12px;
         text-align:center;
     }
+
+    .cart-item{
+        flex-wrap:wrap;
+    }
+
+    .cart-item-info{
+        min-width:calc(100% - 75px);
+    }
+
+    .quantity-control{
+        margin-right:auto;
+    }
 }
 </style>
 </head>
@@ -872,6 +1080,11 @@ footer a{
             <a href="#contact">تماس</a>
             <a href="#consult" class="nav-btn">مشاوره قبل از خرید</a>
         </nav>
+
+        <button class="cart-button" onclick="openCart()" aria-label="سبد خرید">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
 
     </div>
 </header>
@@ -982,6 +1195,7 @@ footer a{
                 <h3>کود محرک رشد</h3>
                 <p>حاوی NPK، هیومیک اسید و ماده آلی برای استفاده در برنامه تغذیه گیاه.</p>
                 <button class="product-button" onclick="openProduct('کود محرک رشد')">مشاهده محصول</button>
+                <button class="add-cart-button" onclick="addToCart('کود محرک رشد','🌱')">🛒 افزودن به سبد خرید</button>
             </div>
         </article>
 
@@ -992,6 +1206,7 @@ footer a{
                 <h3>کود مایع هیومیک اسید</h3>
                 <p>برای قرار گرفتن در برنامه مدیریت خاک و بهبود شرایط محیط ریشه.</p>
                 <button class="product-button" onclick="openProduct('کود مایع هیومیک اسید')">مشاهده محصول</button>
+                <button class="add-cart-button" onclick="addToCart('کود مایع هیومیک اسید','🟤')">🛒 افزودن به سبد خرید</button>
             </div>
         </article>
 
@@ -1002,6 +1217,7 @@ footer a{
                 <h3>N-P-K-S کامل آلی کود</h3>
                 <p>ترکیبی از عناصر غذایی برای استفاده در برنامه تغذیه و چالکود طبق برنامه.</p>
                 <button class="product-button" onclick="openProduct('N-P-K-S کامل آلی کود')">مشاهده محصول</button>
+                <button class="add-cart-button" onclick="addToCart('N-P-K-S کامل آلی کود','🧪')">🛒 افزودن به سبد خرید</button>
             </div>
         </article>
 
@@ -1012,6 +1228,7 @@ footer a{
                 <h3>کود مایع فروت ست</h3>
                 <p>ترکیبی از عناصر غذایی، ماده آلی و آمینواسیدها برای زمان مناسب برنامه باغ.</p>
                 <button class="product-button" onclick="openProduct('کود مایع فروت ست')">مشاهده محصول</button>
+                <button class="add-cart-button" onclick="addToCart('کود مایع فروت ست','🌸')">🛒 افزودن به سبد خرید</button>
             </div>
         </article>
 
@@ -1022,6 +1239,7 @@ footer a{
                 <h3>قرص کود ارگانیک</h3>
                 <p>فرم فشرده کود برای استفاده هدفمند در برنامه تغذیه گیاه.</p>
                 <button class="product-button" onclick="openProduct('قرص کود ارگانیک')">مشاهده محصول</button>
+                <button class="add-cart-button" onclick="addToCart('قرص کود ارگانیک','💊')">🛒 افزودن به سبد خرید</button>
             </div>
         </article>
 
@@ -1032,6 +1250,7 @@ footer a{
                 <h3>کود کامل پلت</h3>
                 <p>محصول پلت‌شده برای قرار گرفتن در برنامه تغذیه و مدیریت خاک.</p>
                 <button class="product-button" onclick="openProduct('کود کامل پلت')">مشاهده محصول</button>
+                <button class="add-cart-button" onclick="addToCart('کود کامل پلت','🟢')">🛒 افزودن به سبد خرید</button>
             </div>
         </article>
 
@@ -1042,6 +1261,7 @@ footer a{
                 <h3>باسیلوس سوبتیلیس</h3>
                 <p>برای برنامه‌های مدیریت زیستی خاک و حمایت از سلامت محیط ریشه.</p>
                 <button class="product-button" onclick="openProduct('کود زیستی جامد باسیلوس سوبتیلیس')">مشاهده محصول</button>
+                <button class="add-cart-button" onclick="addToCart('کود زیستی جامد باسیلوس سوبتیلیس','🦠')">🛒 افزودن به سبد خرید</button>
             </div>
         </article>
 
@@ -1052,6 +1272,7 @@ footer a{
                 <h3>تریکودرما هارزیانوم</h3>
                 <p>برای برنامه‌های مدیریت زیستی خاک و سلامت ریشه.</p>
                 <button class="product-button" onclick="openProduct('کود زیستی جامد تریکودرما هارزیانوم')">مشاهده محصول</button>
+                <button class="add-cart-button" onclick="addToCart('کود زیستی جامد تریکودرما هارزیانوم','🍃')">🛒 افزودن به سبد خرید</button>
             </div>
         </article>
 
@@ -1360,7 +1581,7 @@ footer a{
     🟢 مشاوره رایگان انتخاب کود
 </button>
 
-<!-- MODAL -->
+<!-- PRODUCT MODAL -->
 <div class="modal" id="productModal">
 
     <div class="modal-content">
@@ -1404,6 +1625,29 @@ footer a{
             "
         >
             🟢 مشاوره برای انتخاب این محصول
+        </button>
+
+    </div>
+
+</div>
+
+<!-- CART MODAL -->
+<div class="modal" id="cartModal">
+
+    <div class="modal-content cart-modal-content">
+
+        <button class="close" onclick="closeCart()">×</button>
+
+        <h2 class="cart-title">🛒 سبد خرید شما</h2>
+
+        <div class="cart-items" id="cartItems"></div>
+
+        <div class="cart-total" id="cartTotal">
+            تعداد محصولات: ۰
+        </div>
+
+        <button class="cart-close-button" onclick="closeCart()">
+            بستن سبد خرید
         </button>
 
     </div>
@@ -1495,6 +1739,172 @@ document
 
     });
 
+/* ================= CART ================= */
+
+let cart = {};
+
+function addToCart(name,icon){
+
+    if(cart[name]){
+        if(cart[name].quantity < 6){
+            cart[name].quantity++;
+        }
+    }
+    else{
+        cart[name]={
+            name:name,
+            icon:icon,
+            quantity:1
+        };
+    }
+
+    updateCart();
+
+}
+
+function increaseQuantity(name){
+
+    if(cart[name] && cart[name].quantity < 6){
+        cart[name].quantity++;
+    }
+
+    updateCart();
+
+}
+
+function decreaseQuantity(name){
+
+    if(!cart[name]){
+        return;
+    }
+
+    cart[name].quantity--;
+
+    if(cart[name].quantity <= 0){
+        delete cart[name];
+    }
+
+    updateCart();
+
+}
+
+function updateCart(){
+
+    let total=0;
+
+    Object.values(cart).forEach(item=>{
+        total += item.quantity;
+    });
+
+    document.getElementById("cartCount").innerText=total;
+
+    renderCart();
+
+}
+
+function renderCart(){
+
+    const container =
+        document.getElementById("cartItems");
+
+    const items =
+        Object.values(cart);
+
+    if(items.length===0){
+
+        container.innerHTML=`
+            <div class="cart-empty">
+                <div class="cart-empty-icon">🛒</div>
+                <p>سبد خرید شما خالی است.</p>
+            </div>
+        `;
+
+        document.getElementById("cartTotal").innerText =
+            "تعداد محصولات: ۰";
+
+        return;
+
+    }
+
+    let total=0;
+
+    container.innerHTML =
+        items.map(item=>{
+
+            total += item.quantity;
+
+            return `
+                <div class="cart-item">
+
+                    <div class="cart-item-icon">
+                        ${item.icon}
+                    </div>
+
+                    <div class="cart-item-info">
+                        <h3>${item.name}</h3>
+                        <span>حداکثر تعداد: ۶ عدد</span>
+                    </div>
+
+                    <div class="quantity-control">
+
+                        <button
+                            class="quantity-minus"
+                            onclick="decreaseQuantity('${item.name}')"
+                        >
+                            −
+                        </button>
+
+                        <span class="quantity-number">
+                            ${item.quantity}
+                        </span>
+
+                        <button
+                            class="quantity-plus"
+                            onclick="increaseQuantity('${item.name}')"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+            `;
+
+        }).join("");
+
+    document.getElementById("cartTotal").innerText =
+        "تعداد کل محصولات: " + total + " عدد";
+
+}
+
+function openCart(){
+
+    renderCart();
+
+    document
+        .getElementById("cartModal")
+        .classList.add("show");
+
+}
+
+function closeCart(){
+
+    document
+        .getElementById("cartModal")
+        .classList.remove("show");
+
+}
+
+document
+    .getElementById("cartModal")
+    .addEventListener("click",function(e){
+
+        if(e.target===this){
+            closeCart();
+        }
+
+    });
+
 /* ================= CONSULTATION ================= */
 
 function submitConsult(event){
@@ -1514,6 +1924,7 @@ document.addEventListener("keydown",function(e){
 
     if(e.key==="Escape"){
         closeProduct();
+        closeCart();
     }
 
 });
